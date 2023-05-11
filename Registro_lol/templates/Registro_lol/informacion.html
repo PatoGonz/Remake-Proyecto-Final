@@ -1,0 +1,58 @@
+{% extends "Registro_lol/base.html" %}
+
+{% block main %}
+
+<br>
+<br>
+<br>
+
+<div style="width:800px; margin:0 auto;">
+  
+<!-- Hacer un USER AUTENTICATE y mostrar sólo la info del user -->
+{% if request.user.is_authenticated %}
+
+    <!-- <p>{{campeones.publisher}}</p>
+    <p>{{Crear_campeones.publisher}}</p>
+
+    <p>{{user.id}}</p>
+    <p>{{user.username}}</p> -->
+
+    <h1>Información campeones</h1>
+    <ul>
+
+        {% if not campeones %}
+    
+            <p> ¡No existen campeones! </p>
+
+        {% endif %}
+
+        {% for campeon in campeones %} 
+
+            {% if campeon.publisher.id == user.id %}
+
+            <li>{{campeon}}</li>
+
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+
+    <h1>Información wards</h1>
+    <ul>
+        {% for ward in wards %} 
+        <li>{{ward}}</li>
+
+        {% endfor %}
+    </ul>
+
+    <h1>Información mapas</h1>
+    <ul>
+        {% for mapa in mapas %} 
+        <li>{{mapa}}</li>
+
+        {% endfor %}
+    </ul>
+ {% endif %}   
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{%  extends 'Registro_lol/base.html' %}
+
+{% block main %}
+
+<br>
+<br>
+<br>
+
+<h1> Lista de mensajes </h1>
+
+{% if not mensajes %}
+
+    <h2>¡No hay mensajes!</h2>
+
+{% endif %}
+
+
+{% for mensaje in mensajes %}
+    <li>
+        <p>{{mensaje.email}}</p>
+        <br>
+        <p>{{mensaje.mensaje}}</p>       
+        {% if user.is_authenticated and mensaje.destinatario == user %}
+           <a href="{% url 'mensaje-delete' mensaje.id %}">Borrar</a>
+        {% endif %}
+    </li>
+{% endfor %}
+
+{% endblock %}

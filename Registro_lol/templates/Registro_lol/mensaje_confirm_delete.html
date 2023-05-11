@@ -1,0 +1,17 @@
+{%  extends 'Registro_lol/base.html' %}
+
+{% block main %}
+<br>
+<br>
+<br>
+
+<h1>¿Estás seguro de querer borrar este mensaje? {{object.heading}}</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Borrar">
+</form>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "Registro_lol/base.html" %}
+
+{% block main %}
+
+<br>
+<br>
+<br>
+
+<div style="width:800px; margin:0 auto;">
+
+  <img src="https://img.redbull.com/images/q_auto,f_auto/redbullcom/2022/8/1/iz5iodragqcxplgj4put/lol" alt="Stickman" width="800" height="280">
+  <h1>¡Campeones creados por la comunidad!</h1>
+  <ul>
+
+      {% for campeon in campeones %}
+          <h2>{{campeon.nombre}}</h2>
+          <p>{{campeon.descripcion}}</p>
+          <img src="{{ campeon.imagen.url }}" width="300" height="100%">
+          <br>
+      {% endfor %}
+
+  </ul>
+</div>
+
+<main>
+
+  
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Back to top</a></p>
+    <p>© 2017–2023 Company, Inc. · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Privacy</a> · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Terms</a></p>
+  </footer>
+</main>
+
+{% endblock %}

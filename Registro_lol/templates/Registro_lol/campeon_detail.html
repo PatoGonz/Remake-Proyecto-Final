@@ -1,0 +1,24 @@
+{% extends "Registro_lol/base.html" %}
+
+{% block main %}
+
+<br>
+<br>
+<br>
+
+<p>
+    <img src="{{ object.imagen.url }}" width="300" height="100%">
+    <br>
+    [Nombre:] {{object.nombre}}
+    <br>
+    [Descripción:] {{object.descripcion}}
+    <br>
+    [Dificultad:] {{object.dificultad}}
+    <br>
+    [Fecha creación:] {{object.fecha_creacion}} || [Creador:] {{ campeon.publisher }}
+    <br>
+    <br>
+    <a href="{% url 'campeones-list' %}">Volver</a>
+</p>
+
+{% endblock %}

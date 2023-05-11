@@ -1,0 +1,23 @@
+{% extends "Registro_lol/base.html" %}
+
+{% block main %}
+
+<br>
+<br>
+<br>
+
+<h1> Acceso al sistema </h1>
+
+<form method="POST">
+
+{% csrf_token %}
+{% for field in form %}
+    <p class="fieldsWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </p>
+{% endfor %}
+<input type="submit" value="Ingresar">
+</form>
+
+{% endblock %}

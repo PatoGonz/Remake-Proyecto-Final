@@ -1,0 +1,27 @@
+{% extends "Registro_lol/base.html" %}
+
+{% block main %}
+
+<br>
+<br>
+<br>
+    <div style="width:800px; margin:0 auto;">
+        
+        <p>Ingrese los datos a modificar del campeón:</p>
+
+        <form action=""  method="POST"> 
+
+            {% csrf_token %}
+
+            <table>
+
+                {{ miFormulario.as_table }}
+
+            </table>
+
+            <input type="submit" value="Editar">
+        </form>
+    </div>
+
+
+{% endblock %}

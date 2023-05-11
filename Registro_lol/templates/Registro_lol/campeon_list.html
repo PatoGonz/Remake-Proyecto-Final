@@ -1,0 +1,38 @@
+{%  extends 'Registro_lol/base.html' %}
+
+{% block main %}
+
+<br>
+<br>
+<br>
+
+<h1> Buscador de Campeones </h1>
+
+<form>
+    <p>
+        <label for="criterio_nombre">Criterio:</label>
+        <input type="text" name="criterio_nombre" maxlength="100" required="" id="criterio_nombre">     
+        </p>
+
+        <p>
+        <input type="submit" value="Buscar">
+         </p>
+
+</form>
+
+<ul>
+    {% for campeon in object_list %}
+        <li>
+            {{campeon.nombre}}
+            {{post}} <a href="{% url 'campeones-detail' campeon.id %}">Detalle</a>
+            
+            {% if user.is_authenticated and campeon.publisher == user %}
+                {{post}} <a href="{% url 'campeones-update' campeon.id %}">Actualizar</a>
+                {{post}} <a href="{% url 'campeones-delete' campeon.id %}">Borrar</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+
+</ul>
+
+{% endblock %}

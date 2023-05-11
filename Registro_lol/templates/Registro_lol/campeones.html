@@ -1,0 +1,22 @@
+{%  extends 'Registro_lol/base.html' %}
+
+{% block main %}
+<br>
+<br>
+<br>
+
+<h1> Creador de campeones </h1>
+
+<form action="{% url 'campeones-crear' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Guardar">
+
+<!-- <ul>
+    {% for campeon in campeones %}
+        <li>{{campeon}}</li>
+    {% endfor %}
+
+</ul> -->
+
+{% endblock %}
